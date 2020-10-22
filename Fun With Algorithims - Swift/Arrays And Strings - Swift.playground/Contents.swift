@@ -45,3 +45,21 @@ func containsDups(s: String?) -> Bool {
     
     return false
 }
+
+// 1b. Time: O(n), Space: O(n)
+func containsDups1(s: String?) -> Bool {
+    guard let string = s else { return false }
+    if string.isEmpty { return false }
+    
+    var tracker = Set<Character>()
+    for i in 0 ..< string.count {
+        let index = string.index(string.startIndex, offsetBy: i)
+        if tracker.contains(string[index]) {
+            return true
+        } else {
+            tracker.insert(string[index])
+        }
+    }
+    
+    return false
+}
