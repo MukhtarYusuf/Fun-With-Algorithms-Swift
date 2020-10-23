@@ -63,3 +63,23 @@ func containsDups1(s: String?) -> Bool {
     
     return false
 }
+
+// 1c. Time: O(n), Space: O(1)
+func containsDups2(s: String?) -> Bool {
+    guard let letters = s else { return false }
+    if letters.isEmpty { return false }
+    
+    var tracker = [Bool](repeating: false, count: 256) // Similar to extended ASCII
+    for i in 0 ..< letters.count {
+        let character = letters[letters.index(letters.startIndex, offsetBy: i)]
+        let intValue = Int(character.asciiValue!)
+        if tracker[intValue] {
+            return true
+        } else {
+            tracker[intValue] = true
+        }
+    }
+    
+    return false
+}
+
