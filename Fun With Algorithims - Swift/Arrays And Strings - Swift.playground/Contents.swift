@@ -83,3 +83,16 @@ func containsDups2(s: String?) -> Bool {
     return false
 }
 
+// 2a. Time: O(nlogn), Space: O(1)
+func isPermutation(s1: String?, s2: String?) -> Bool {
+    if let string1 = s1, let string2 = s2 {
+        if string1.count != string2.count {
+            return false
+        }
+        
+        return string1.sorted() == string2.sorted()
+    }
+    
+    return false
+}
+
