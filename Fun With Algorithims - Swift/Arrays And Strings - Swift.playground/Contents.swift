@@ -96,3 +96,38 @@ func isPermutation(s1: String?, s2: String?) -> Bool {
     return false
 }
 
+// 2b. Time: O(nlogn), Space: O(n)
+func isPermutation1(s1: String?, s2: String?) -> Bool {
+    if let string1 = s1, let string2 = s2 {
+        let length1 = string1.count
+        let length2 = string2.count
+        if length1 != length2 { return false }
+        
+        var tracker = [Character : Int]()
+        for i in 0 ..< length1 {
+            let character = string1[string1.index(string1.startIndex, offsetBy: i)]
+            if tracker[character] != nil {
+                tracker[character]! += 1
+            } else {
+                tracker[character] = 1
+            }
+        }
+        
+        for i in 0 ..< length2 {
+            let character = string2[string2.index(string2.startIndex, offsetBy: i)]
+            if tracker[character] != nil {
+                tracker[character]! -= 1
+                if tracker[character]! == 0 {
+                    tracker[character] = nil
+                }
+            } else {
+                return false
+            }
+        }
+        
+        return tracker.isEmpty
+    }
+    
+    return false
+}
+
