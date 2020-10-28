@@ -131,3 +131,33 @@ func isPermutation1(s1: String?, s2: String?) -> Bool {
     return false
 }
 
+// 2c. Time: O(n), Space: O(1)
+func isPermutation2(s1: String?, s2: String?) -> Bool {
+    if let string1 = s1, let string2 = s2 {
+        let length1 = string1.count
+        let length2 = string2.count
+        if length1 != length2 { return false }
+        
+        var tracker = [Int](repeating: 0, count: 256)
+        var uniqueCount = 0
+        for i in 0 ..< length1 {
+            let character = string1[string1.index(string1.startIndex, offsetBy: i)]
+            let index = Int(character.asciiValue!)
+            if tracker[index] == 0 { uniqueCount += 1 }
+            tracker[index] += 1
+        }
+        
+        for i in 0 ..< length2 {
+            let character = string2[string2.index(string2.startIndex, offsetBy: i)]
+            let index = Int(character.asciiValue!)
+            if tracker[index] == 0 { return false }
+            tracker[index] -= 1
+            if tracker[index] == 0 { uniqueCount -= 1 }
+        }
+        
+        return uniqueCount == 0
+    }
+    
+    return false
+}
+
