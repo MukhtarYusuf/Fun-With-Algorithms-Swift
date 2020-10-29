@@ -161,3 +161,27 @@ func isPermutation2(s1: String?, s2: String?) -> Bool {
     return false
 }
 
+// 3. Time: O(n), Space: O(1)
+func urlify(_ arr: inout [Character], _ length: Int) {
+    var newLength = length
+    for i in 0 ..< length {
+        if arr[i] == " " {
+            newLength += 2
+        }
+    }
+    
+    var index1 = length - 1; var index2 = newLength - 1
+    while index1 >= 0 {
+        if arr[index1] == " " {
+            arr[index2] = "0"
+            arr[index2 - 1] = "2"
+            arr[index2 - 2] = "%"
+            index2 -= 2
+        } else {
+            arr[index2] = arr[index1]
+        }
+        
+        index1 -= 1; index2 -= 1
+    }
+}
+
