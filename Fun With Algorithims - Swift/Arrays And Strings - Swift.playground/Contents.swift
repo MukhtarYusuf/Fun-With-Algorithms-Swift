@@ -185,3 +185,18 @@ func urlify(_ arr: inout [Character], _ length: Int) {
     }
 }
 
+// 4a. Time: O(n), Space: O(n)
+func pPermut(_ word: String) -> Bool {
+    if word.isEmpty { return false }
+    
+    var tracker = Set<Character>()
+    for c in word {
+        if tracker.contains(c) {
+            tracker.remove(c)
+        } else {
+            tracker.insert(c)
+        }
+    }
+    
+    return tracker.count <= 1
+}
