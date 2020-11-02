@@ -200,3 +200,26 @@ func pPermut(_ word: String) -> Bool {
     
     return tracker.count <= 1
 }
+
+// 4b. Time: O(n), Space: O(1)
+func pPermut1(_ word: String) -> Bool {
+    if word.isEmpty { return false }
+    
+    var tracker = [Bool](repeating: false, count: 256)
+    var uCount = 0
+    for i in 0 ..< word.count {
+        let index = word.index(word.startIndex, offsetBy: i)
+        let char = Character(word[index].lowercased())
+        let tIndex = Int(char.asciiValue!)
+        
+        tracker[tIndex] = !tracker[tIndex]
+        if tracker[tIndex] {
+            uCount += 1
+        } else {
+            uCount -= 1
+        }
+    }
+    
+    return uCount <= 1
+}
+
