@@ -223,3 +223,31 @@ func pPermut1(_ word: String) -> Bool {
     return uCount <= 1
 }
 
+// 5. Time: O(n), Space: O(1)
+func oneAway(_ s1: String, _ s2: String) -> Bool {
+    let length1 = s1.count
+    let length2 = s2.count
+    let diff = abs(length1 - length2)
+    if diff > 1 { return false }
+    
+    var ptr1 = 0; var ptr2 = 0; var diffCount = 0
+    while ptr1 < length1 {
+        let sIndex1 = s1.index(s1.startIndex, offsetBy: ptr1)
+        let sIndex2 = s2.index(s2.startIndex, offsetBy: ptr2)
+        if s1[sIndex1] != s2[sIndex2] {
+            diffCount += 1
+            if diffCount > 1 { return false }
+            
+            if length1 < length2 {
+                ptr1 -= 1
+            } else if length2 < length1 {
+                ptr2 -= 1
+            }
+        }
+        
+        ptr1 += 1; ptr2 += 2
+    }
+    
+    return true
+}
+
