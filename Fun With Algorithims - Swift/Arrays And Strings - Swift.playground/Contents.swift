@@ -251,3 +251,38 @@ func oneAway(_ s1: String, _ s2: String) -> Bool {
     return true
 }
 
+// 6. Time: O(n), Space: O(1)
+func compressString(_ s: String) -> String {
+    if s.count <= 1 { return s }
+    
+    var result = ""
+    var prevChar = s[s.startIndex]
+    var count = 1
+    var wasCompressed = false
+
+    for i in 1 ..< s.count {
+        let sIndex = s.index(s.startIndex, offsetBy: i)
+        let curChar = s[sIndex]
+        if prevChar != curChar {
+            result.append(prevChar)
+            result.append(String(count))
+            prevChar = curChar
+            count = 1
+        } else {
+            count += 1
+            wasCompressed = true
+        }
+        
+        if i == s.count - 1 {
+            result.append(prevChar)
+            result.append(String(count))
+        }
+    }
+    
+    if !wasCompressed {
+        result = s
+    }
+    
+    return result
+}
+
