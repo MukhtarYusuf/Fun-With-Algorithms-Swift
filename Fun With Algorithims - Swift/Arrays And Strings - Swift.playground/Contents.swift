@@ -286,3 +286,25 @@ func compressString(_ s: String) -> String {
     return result
 }
 
+// 7. Time: O(n), Space: O(1)
+func rotateMatrix(_ mat: inout [[Int]]) {
+    if mat.count == 0 || mat[0].count == 0 || mat.count != mat[0].count {
+        return
+    }
+    
+    let n = mat.count // nxn matrix
+    for i in 0 ..< n/2 {
+        let first = 0+i
+        let last = n-1-i
+        let size = last-first
+        
+        for j in 0 ..< size {
+            let temp = mat[first][first+j] // Store top in temp
+            mat[first][first+j] = mat[last-j][first] // Copy left to top
+            mat[last-j][first] = mat[last][last-j] // Copy bottom to left
+            mat[last][last-j] = mat[first+j][last] // Copy right to bottom
+            mat[first+j][last] = temp // Copy top to right
+        }
+    }
+}
+
