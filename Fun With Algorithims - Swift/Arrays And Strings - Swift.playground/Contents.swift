@@ -308,3 +308,36 @@ func rotateMatrix(_ mat: inout [[Int]]) {
     }
 }
 
+// 8. Time: O(mn(m+n)), Space: O(m+n)
+func setZeros(_ mat: inout [[Int]]) {
+    if mat.count == 0 || mat[0].count == 0 { return }
+    
+    var rowFlags = [Bool](repeating: false, count: mat.count)
+    var colFlags = [Bool](repeating: false, count: mat[0].count)
+    
+    for row in 0 ..< mat.count {
+        for col in 0 ..< mat[0].count {
+            if mat[row][col] == 0 {
+                rowFlags[row] = true
+                colFlags[col] = true
+            }
+        }
+    }
+    
+    for row in 0 ..< rowFlags.count {
+        if rowFlags[row] {
+            for col in 0 ..< mat[0].count {
+                mat[row][col] = 0
+            }
+        }
+    }
+    
+    for col in 0 ..< colFlags.count {
+        if colFlags[col] {
+            for row in 0 ..< mat.count {
+                mat[row][col] = 0
+            }
+        }
+    }
+}
+
