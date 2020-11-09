@@ -341,3 +341,25 @@ func setZeros(_ mat: inout [[Int]]) {
     }
 }
 
+// Method Calls
+
+//containsDups(s: str1)
+//containsDups1(s: str)
+//containsDups2(s: str1)
+//
+//isPermutation(s1: str1, s2: str2)
+//isPermutation(s1: str, s2: str1)
+//isPermutation1(s1: str1, s2: str2)
+//isPermutation1(s1: str, s2: str1)
+//isPermutation2(s1: str1, s2: str2)
+//isPermutation2(s1: str, s2: str1)
+
+//compressString(str3)
+//urlify(&arr, str.count)
+//printMatrix(mat)
+//rotateMatrix(&mat)
+//printMatrix(mat)
+
+printMatrix(mat)
+setZeros(&mat)
+printMatrix(mat)
