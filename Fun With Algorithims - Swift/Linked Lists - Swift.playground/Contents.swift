@@ -47,3 +47,21 @@ func removeDups(_ head: ListNode) {
     }
 }
 
+// Solution 1b: Set/Dictionary Approach. Time: O(n), Space: O(n)
+func removeDups1(_ head: ListNode) {
+    var tracker = Set<Int>()
+    var current: ListNode! = head
+    var previous: ListNode! = head
+    
+    while current != nil {
+        if tracker.contains(current.val) {
+            previous.next = current.next
+        } else {
+            tracker.insert(current.val)
+            previous = previous.next
+        }
+        
+        current = current.next
+    }
+}
+
