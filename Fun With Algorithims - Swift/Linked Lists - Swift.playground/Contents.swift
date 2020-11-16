@@ -65,3 +65,24 @@ func removeDups1(_ head: ListNode) {
     }
 }
 
+// Problem 2: Return kth to Last
+
+// Solution 2a: Formula Approach. Time: O(n), Space: O(1)
+func kToLast(_ head: ListNode, _ k: Int) -> ListNode? {
+    if k < 1 { return nil }
+    
+    var current: ListNode! = head
+    let length = calcLength(head)
+    
+    let nodeIndex = length - k
+    if nodeIndex < 0 {
+        return nil
+    }
+    
+    for _ in 0 ..< nodeIndex {
+        current = current.next
+    }
+    
+    return current
+}
+
