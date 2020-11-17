@@ -86,3 +86,16 @@ func kToLast(_ head: ListNode, _ k: Int) -> ListNode? {
     return current
 }
 
+// Solution 2b: Recursion. Time: O(n), Space: O(n)
+func recKToLast(_ node: ListNode?, _ k: Int, _ backIndex: inout Int) -> ListNode? {
+    if node == nil { return nil }
+    
+    var resultNode = recKToLast(node!.next, k, &backIndex)
+    if k == backIndex {
+        resultNode = node
+    }
+    backIndex += 1
+    
+    return resultNode
+}
+
