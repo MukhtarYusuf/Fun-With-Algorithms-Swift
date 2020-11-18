@@ -99,3 +99,10 @@ func recKToLast(_ node: ListNode?, _ k: Int, _ backIndex: inout Int) -> ListNode
     return resultNode
 }
 
+func kToLast1(_ head: ListNode, _ k: Int) -> ListNode? {
+    if k < 1 { return nil }
+    
+    var backIndex = 1
+    return recKToLast(head, k, &backIndex)
+}
+
