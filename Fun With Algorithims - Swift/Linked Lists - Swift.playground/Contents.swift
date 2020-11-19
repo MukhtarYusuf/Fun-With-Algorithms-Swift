@@ -106,3 +106,25 @@ func kToLast1(_ head: ListNode, _ k: Int) -> ListNode? {
     return recKToLast(head, k, &backIndex)
 }
 
+// Solution 2c: 2 Pointer Approach. Time: O(n), Space: O(1)
+func kToLast2(_ head: ListNode, _ k: Int) -> ListNode? {
+    if k < 1 { return nil }
+    
+    var current: ListNode! = head
+    var runner: ListNode! = head
+    
+    for _ in 0 ..< k {
+        if runner == nil { // k > length
+            return nil
+        }
+        runner = runner.next
+    }
+    
+    while runner != nil {
+        runner = runner.next
+        current = current.next
+    }
+    
+    return current
+}
+
