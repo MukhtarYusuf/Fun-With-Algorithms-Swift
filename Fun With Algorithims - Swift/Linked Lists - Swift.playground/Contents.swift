@@ -128,3 +128,14 @@ func kToLast2(_ head: ListNode, _ k: Int) -> ListNode? {
     return current
 }
 
+// Problem 3: Delete Middle
+
+// Solution: Copy Deleted Node
+func deleteMiddle(_ node: ListNode) {
+    let nextNode: ListNode! = node.next
+    if nextNode == nil { return }
+    
+    node.val = nextNode.val
+    node.next = nextNode.next
+}
+
