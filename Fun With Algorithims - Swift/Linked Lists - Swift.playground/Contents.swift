@@ -139,3 +139,23 @@ func deleteMiddle(_ node: ListNode) {
     node.next = nextNode.next
 }
 
+// Problem 4: Partition
+
+// Solution: Two Pointers. Time: O(n), Space: O(1)
+func partition(_ head: ListNode, _ x: Int) {
+    var current: ListNode! = head
+    var tail: ListNode! = head
+    
+    while current != nil {
+        if current.val < x { // Swap. Can also have a method
+            let temp = tail.val
+            tail.val = current.val
+            current.val = temp
+            
+            tail = tail.next
+        }
+        
+        current = current.next
+    }
+}
+
