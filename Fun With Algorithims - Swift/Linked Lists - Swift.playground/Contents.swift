@@ -159,3 +159,46 @@ func partition(_ head: ListNode, _ x: Int) {
     }
 }
 
+// Problem 5: Sum Lists
+
+// Solution 5a: Iterative Approach. Time: O(n), Space: O(1) - Reverse Order
+func sumLists(_ head1: ListNode, _ head2: ListNode) -> ListNode {
+    var result: ListNode! = nil
+    var cur1: ListNode! = head1
+    var cur2: ListNode! = head2
+    var cur3: ListNode! = nil
+    var carry = 0
+    
+    while cur1 != nil || cur2 != nil || carry != 0 {
+        var val1 = 0; var val2 = 0; var val3 = 0
+        
+        if cur1 != nil {
+            val1 = cur1.val
+            cur1 = cur1.next
+        }
+        if cur2 != nil {
+            val2 = cur2.val
+            cur2 = cur2.next
+        }
+        
+        val3 = val1 + val2 + carry
+        if val3 >= 10 {
+            carry = 1
+            val3 -= 10
+        } else {
+            carry = 0
+        }
+        
+        let resultNode = ListNode(val: val3)
+        if result == nil {
+            result = resultNode
+            cur3 = resultNode
+        } else {
+            cur3.next = resultNode
+            cur3 = cur3.next
+        }
+    }
+    
+    return result
+}
+
