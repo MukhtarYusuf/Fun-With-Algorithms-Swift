@@ -202,3 +202,34 @@ func sumLists(_ head1: ListNode, _ head2: ListNode) -> ListNode {
     return result
 }
 
+// Solution 5b: Recursion. Time: O(n), Space: O(n) - Reverse Order
+func recSumLists(_ node1: ListNode?, _ node2: ListNode?, _ carry: Int) -> ListNode? {
+    if node1 == nil && node2 == nil && carry == 0 {
+        return nil
+    }
+    
+    var val1 = 0; var val2 = 0; var val3 = 0; var localCarry = 0
+    var cur1: ListNode! = node1
+    var cur2: ListNode! = node2
+    
+    if node1 != nil {
+        val1 = node1!.val
+        cur1 = cur1.next
+    }
+    if node2 != nil {
+        val2 = node2!.val
+        cur2 = cur2.next
+    }
+    
+    val3 = val1 + val2 + carry
+    if val3 >= 10 {
+        val3 -= 10
+        localCarry = 1
+    }
+    
+    let cur3 = ListNode(val: val3)
+    cur3.next = recSumLists(cur1, cur2, localCarry)
+    
+    return cur3
+}
+
