@@ -233,3 +233,20 @@ func recSumLists(_ node1: ListNode?, _ node2: ListNode?, _ carry: Int) -> ListNo
     return cur3
 }
 
+// Solution 5c: Recursion. Time: O(n), Space: O(n) - Forward Order
+func sumLists1(_ head1: ListNode, _ head2: ListNode) -> ListNode {
+    let paddedNodes: (fNode: ListNode, sNode: ListNode) = padNodes(head1, head2)
+    
+    var carry = 0
+    var result: ListNode! = recSumLists1(paddedNodes.fNode, paddedNodes.sNode, &carry)
+    
+    if result.val >= 10 {
+        let newResult = ListNode(val: 1)
+        result.val -= 10
+        newResult.next = result
+        result = newResult
+    }
+    
+    return result;
+}
+
