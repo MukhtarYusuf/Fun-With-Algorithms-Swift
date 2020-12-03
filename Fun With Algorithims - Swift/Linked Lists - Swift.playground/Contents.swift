@@ -250,3 +250,22 @@ func sumLists1(_ head1: ListNode, _ head2: ListNode) -> ListNode {
     return result;
 }
 
+func recSumLists1(_ node1: ListNode?, _ node2: ListNode?, _ carry: inout Int) -> ListNode? {
+    if node1 == nil && node2 == nil {
+        return nil
+    }
+    
+    let result = ListNode(val: 0)
+    result.next = recSumLists1(node1!.next, node2!.next, &carry)
+    
+    result.val = node1!.val + node2!.val + carry
+    if result.val >= 10 {
+        result.val -= 10
+        carry = 1
+    } else {
+        carry = 0
+    }
+    
+    return result
+}
+
