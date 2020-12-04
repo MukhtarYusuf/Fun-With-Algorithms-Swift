@@ -269,3 +269,19 @@ func recSumLists1(_ node1: ListNode?, _ node2: ListNode?, _ carry: inout Int) ->
     return result
 }
 
+func padNodes(_ n1: ListNode, _ n2: ListNode) -> (ListNode, ListNode) {
+    let length1 = calcLength(n1)
+    let length2 = calcLength(n2)
+    var shorter = length1 < length2 ? n1 : n2
+    let longer = length1 > length2 ? n1 : n2
+    
+    let diff = abs(length1 - length2)
+    for _ in 0 ..< diff {
+        let padNode = ListNode(val: 0)
+        padNode.next = shorter
+        shorter = padNode
+    }
+    
+    return (shorter, longer)
+}
+
