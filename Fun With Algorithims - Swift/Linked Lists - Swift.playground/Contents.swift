@@ -285,3 +285,36 @@ func padNodes(_ n1: ListNode, _ n2: ListNode) -> (ListNode, ListNode) {
     return (shorter, longer)
 }
 
+// Problem 6: Palindrome
+
+// 1 -> 2 -> 3 -> 2 -> 1
+// Solution 6a: Stack Approach. Time: O(n), Space: O(n)
+func isPalindrome(_ head: ListNode) -> Bool {
+    var stack = [Int]()
+    
+    var tail: ListNode! = head
+    var runner: ListNode! = head
+    
+    while runner != nil && runner.next != nil { // Find midpoint of LinkedList
+        tail = tail.next
+        runner = runner.next!.next
+    }
+    
+    if runner != nil { tail = tail.next }
+    var cur: ListNode! = head
+    
+    while tail != nil {
+        stack.insert(tail.val, at: 0)
+    }
+    
+    while stack.count != 0 {
+        if cur.val != stack.remove(at: 0) {
+            return false
+        }
+        
+        cur = cur.next
+    }
+    
+    return true
+}
+
