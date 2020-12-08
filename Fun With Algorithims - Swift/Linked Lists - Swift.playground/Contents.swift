@@ -318,3 +318,19 @@ func isPalindrome(_ head: ListNode) -> Bool {
     return true
 }
 
+// Solution 6b: Recursion. Time: O(n), Space: O(n)
+func isPalindrome1(_ head: ListNode) -> Bool {
+    var cur: ListNode! = head
+    var tail: ListNode! = head
+    var runner: ListNode! = head
+    
+    while runner != nil && runner.next != nil { // Find Midpoint
+        tail = tail.next
+        runner = runner.next!.next
+    }
+    
+    if runner != nil { tail = tail.next }
+    
+    return recIsPalindrome1(&cur, tail)
+}
+
