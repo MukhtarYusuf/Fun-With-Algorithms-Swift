@@ -334,3 +334,16 @@ func isPalindrome1(_ head: ListNode) -> Bool {
     return recIsPalindrome1(&cur, tail)
 }
 
+func recIsPalindrome1(_ node1: inout ListNode?, _ node2: ListNode?) -> Bool {
+    if node2 == nil {
+        return true
+    }
+    
+    var isPalindrome = recIsPalindrome1(&node1, node2?.next)
+    if isPalindrome {
+        isPalindrome = node1!.val == node2!.val
+        node1 = node1?.next // No need to update after we invalidate
+    }
+    
+    return isPalindrome
+}
