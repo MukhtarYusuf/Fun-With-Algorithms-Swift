@@ -22,5 +22,18 @@ class ThreeStack {
         arr = [Int](repeating: 0, count: STACK_SIZE * 3)
         tops = [-1, -1, -1]
     }
+    
+    func push(_ sNumber: Int, _ val: Int) { // Check sNumber range
+        var index = tops[sNumber] + (sNumber * STACK_SIZE)
+        index += 1
+        
+        if !isFull(sNumber) {
+            arr[index] = val
+            tops[sNumber] += 1
+        } else { // Throw Error?
+            print("Full Stack")
+        }
+    }
+    
 
 }
