@@ -35,5 +35,14 @@ class ThreeStack {
         }
     }
     
+    func pop(_ sNumber: Int) -> Int? {
+        guard !isEmpty(sNumber) else { return nil }
+        
+        let index = tops[sNumber] + (sNumber * STACK_SIZE)
+        tops[sNumber] -= 1
+        
+        return arr[index]
+    }
+    
 
 }
