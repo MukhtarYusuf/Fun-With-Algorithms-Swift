@@ -44,5 +44,12 @@ class ThreeStack {
         return arr[index]
     }
     
+    func peek(_ sNumber: Int) -> Int? {
+        guard !isEmpty(sNumber) else { return nil }
+        
+        let index = tops[sNumber] + (sNumber * STACK_SIZE)
+        return arr[index]
+    }
+    
 
 }
