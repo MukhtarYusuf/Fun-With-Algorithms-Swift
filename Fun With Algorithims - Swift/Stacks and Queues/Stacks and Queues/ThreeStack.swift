@@ -51,5 +51,9 @@ class ThreeStack {
         return arr[index]
     }
     
+    func isEmpty(_ sNumber: Int) -> Bool {
+        return tops[sNumber] == -1
+    }
+    
 
 }
