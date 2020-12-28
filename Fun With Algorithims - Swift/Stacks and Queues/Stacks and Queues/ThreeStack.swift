@@ -55,5 +55,11 @@ class ThreeStack {
         return tops[sNumber] == -1
     }
     
+    func isFull(_ sNumber: Int) -> Bool {
+        let fullIndex = (STACK_SIZE + (sNumber * STACK_SIZE)) - 1
+        let index = tops[sNumber] + (sNumber * STACK_SIZE)
+        
+        return index >= fullIndex
+    }
 
 }
