@@ -17,6 +17,19 @@ class ThreeStack1 {
     private var tops: [Int]
     private var STACK_SIZE: Int
     private var globalIndex: Int
+    
+    init(size: Int) {
+        STACK_SIZE = size
+        
+        arr = [StackNode]()
+        for _ in 0 ..< STACK_SIZE {
+            arr.append(StackNode(val: 0))
+        }
+        
+        tops = [-1, -1, -1]
+        globalIndex = 0
+    }
+    
 }
 
 /*
