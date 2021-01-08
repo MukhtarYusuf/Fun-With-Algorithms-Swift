@@ -30,6 +30,23 @@ class ThreeStack1 {
         globalIndex = 0
     }
     
+    func push(_ sNumber: Int, _ val: Int) {
+        if !isFull() {
+            let curNode = arr[globalIndex]
+            curNode.previousTop = tops[sNumber]
+            curNode.val = val
+            tops[sNumber] = globalIndex
+            
+            if curNode.nextIndex != -1 {
+                globalIndex = curNode.nextIndex
+            } else {
+                globalIndex += 1
+            }
+        } else {
+            print("Stack is Full!")
+        }
+    }
+    
 }
 
 /*
