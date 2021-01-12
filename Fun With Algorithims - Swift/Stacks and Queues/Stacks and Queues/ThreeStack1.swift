@@ -47,6 +47,25 @@ class ThreeStack1 {
         }
     }
     
+    func pop(_ sNumber: Int) -> Int? {
+        if !isEmpty(sNumber) {
+            let poppedNode = arr[tops[sNumber]]
+            
+            if tops[sNumber] < globalIndex {
+                poppedNode.nextIndex = globalIndex
+                globalIndex = tops[sNumber] == -1 ? 0 : tops[sNumber]
+            } else {
+                poppedNode.nextIndex = arr[globalIndex].nextIndex
+                arr[globalIndex].nextIndex = tops[sNumber]
+            }
+            tops[sNumber] = poppedNode.previousTop
+            
+            return poppedNode.val
+        } else {
+            return nil
+        }
+    }
+    
 }
 
 /*
