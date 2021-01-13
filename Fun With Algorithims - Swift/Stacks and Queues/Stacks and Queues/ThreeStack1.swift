@@ -66,6 +66,14 @@ class ThreeStack1 {
         }
     }
     
+    func peek(_ sNumber: Int) -> Int? {
+        if !isEmpty(sNumber) {
+            return arr[tops[sNumber]].val
+        } else {
+            return nil
+        }
+    }
+    
 }
 
 /*
