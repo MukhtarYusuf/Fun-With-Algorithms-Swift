@@ -74,6 +74,10 @@ class ThreeStack1 {
         }
     }
     
+    func isFull() -> Bool {
+        return globalIndex >= arr.count // Check?
+    }
+    
 }
 
 /*
