@@ -84,6 +84,22 @@ class ThreeStack1 {
     
 }
 
+fileprivate class StackNode: CustomStringConvertible {
+    var val: Int
+    var previousTop: Int
+    var nextIndex: Int
+    
+    init(val: Int) {
+        self.val = val
+        previousTop = -1
+        nextIndex = -1
+    }
+    
+    var description: String {
+        return "Value: \(val)"
+    }
+}
+
 /*
  for push
     set lastTop for node
