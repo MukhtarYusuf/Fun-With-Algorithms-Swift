@@ -78,6 +78,10 @@ class ThreeStack1 {
         return globalIndex >= arr.count // Check?
     }
     
+    func isEmpty(_ sNumber: Int) -> Bool {
+        return tops[sNumber] == -1
+    }
+    
 }
 
 /*
