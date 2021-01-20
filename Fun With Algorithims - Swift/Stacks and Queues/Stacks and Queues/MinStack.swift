@@ -15,6 +15,16 @@ import Foundation
 class MinStack {
 }
 
+fileprivate class StackNode { // Could be private inner class
+    var val: Int
+    var min: Int
+    var next: StackNode?
+    
+    init(val: Int) {
+        self.val = val
+        min = Int.max
+    }
+}
 
 // min = 3,
 // push(2), min = 2
