@@ -13,6 +13,8 @@ import Foundation
 // Solution: Custom StackNode Approach
 
 class MinStack {
+    private var top: StackNode?
+    
     func pop() -> Int? {
         let poppedValue = top?.val
         top = top?.next
