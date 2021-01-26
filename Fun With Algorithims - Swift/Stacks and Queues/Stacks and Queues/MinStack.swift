@@ -15,6 +15,18 @@ import Foundation
 class MinStack {
     private var top: StackNode?
     
+    func push(val: Int) {
+        let newNode = StackNode(val: val)
+        if top == nil || val < top!.val {
+            newNode.min = val
+        } else {
+            newNode.min = top!.min
+        }
+        
+        newNode.next = top
+        top = newNode
+    }
+    
     func pop() -> Int? {
         let poppedValue = top?.val
         top = top?.next
