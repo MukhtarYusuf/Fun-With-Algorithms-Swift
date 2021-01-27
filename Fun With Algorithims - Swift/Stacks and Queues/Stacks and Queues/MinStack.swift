@@ -34,6 +34,10 @@ class MinStack {
         return poppedValue
     }
     
+    func min() -> Int? { // Could make non-optional
+        return top?.min
+    }
+    
 }
 
 fileprivate class StackNode { // Could be private inner class
