@@ -38,6 +38,10 @@ class MinStack {
         return top?.min
     }
     
+    func peek() -> Int? {
+        return top?.val
+    }
+    
 }
 
 fileprivate class StackNode { // Could be private inner class
