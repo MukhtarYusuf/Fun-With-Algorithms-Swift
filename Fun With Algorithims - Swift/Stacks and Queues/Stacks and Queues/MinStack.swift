@@ -42,6 +42,10 @@ class MinStack {
         return top?.val
     }
     
+    func isEmpty() -> Bool {
+        return top == nil
+    }
+    
 }
 
 fileprivate class StackNode { // Could be private inner class
