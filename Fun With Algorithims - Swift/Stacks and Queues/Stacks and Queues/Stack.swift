@@ -22,5 +22,11 @@ class Stack<T> {
     
     private var top: StackNode<T>?
     
+    func push(_ val: T) {
+        let newNode = StackNode(val: val)
+        newNode.next = top
+        top = newNode
+    }
+    
     
 }
