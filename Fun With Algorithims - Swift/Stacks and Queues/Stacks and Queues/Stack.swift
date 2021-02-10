@@ -28,5 +28,12 @@ class Stack<T> {
         top = newNode
     }
     
+    func pop() -> T? {
+        let poppedValue = top?.val
+        top = top?.next
+        
+        return poppedValue
+    }
+    
     
 }
