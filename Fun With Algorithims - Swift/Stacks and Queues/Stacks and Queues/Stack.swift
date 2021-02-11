@@ -35,5 +35,9 @@ class Stack<T> {
         return poppedValue
     }
     
+    func peek() -> T? {
+        return top?.val
+    }
+    
     
 }
