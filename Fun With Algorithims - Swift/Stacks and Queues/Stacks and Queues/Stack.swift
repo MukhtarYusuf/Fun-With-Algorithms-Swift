@@ -39,5 +39,9 @@ class Stack<T> {
         return top?.val
     }
     
+    func isEmpty() -> Bool {
+        return top == nil
+    }
+    
     
 }
