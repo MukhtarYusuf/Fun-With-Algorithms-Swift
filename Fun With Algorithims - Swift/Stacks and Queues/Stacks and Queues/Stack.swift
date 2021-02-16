@@ -43,5 +43,17 @@ class Stack<T> {
         return top == nil
     }
     
+    func displayStack() {
+        var stackValues = ""
+        var cur: StackNode<T>! = top
+        
+        while cur != nil {
+            stackValues += "[\(cur.val)]\n"
+            cur = cur.next
+        }
+        
+        print(stackValues)
+    }
     
 }
+
