@@ -12,5 +12,10 @@ import Foundation
 
 class Stack1<T> {
     private var arr: [T]
+    
+    init() {
+        arr = [T]()
+    }
+    
 
 }
