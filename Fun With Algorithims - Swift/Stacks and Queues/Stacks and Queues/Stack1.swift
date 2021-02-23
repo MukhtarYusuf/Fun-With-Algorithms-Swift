@@ -17,5 +17,9 @@ class Stack1<T> {
         arr = [T]()
     }
     
+    func push(_ val: T) {
+        arr.insert(val, at: 0)
+    }
+    
 
 }
