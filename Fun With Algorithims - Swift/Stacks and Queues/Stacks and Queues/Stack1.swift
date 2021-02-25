@@ -21,5 +21,11 @@ class Stack1<T> {
         arr.insert(val, at: 0)
     }
     
+    func pop() -> T? {
+        guard !isEmpty() else { return nil }
+        
+        return arr.remove(at: 0)
+    }
+    
 
 }
