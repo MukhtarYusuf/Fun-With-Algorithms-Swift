@@ -27,5 +27,11 @@ class Stack1<T> {
         return arr.remove(at: 0)
     }
     
+    func peek() -> T? {
+        guard !isEmpty() else { return nil }
+        
+        return arr[0]
+    }
+    
 
 }
