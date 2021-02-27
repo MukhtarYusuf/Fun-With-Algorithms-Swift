@@ -33,5 +33,8 @@ class Stack1<T> {
         return arr[0]
     }
     
+    func isEmpty() -> Bool {
+        return arr.isEmpty
+    }
 
 }
