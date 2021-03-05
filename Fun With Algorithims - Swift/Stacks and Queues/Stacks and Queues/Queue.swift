@@ -20,5 +20,8 @@ class Queue<T> {
         }
     }
     
+    private var first: QueueNode<T>?
+    private var last: QueueNode<T>?
+    
 
 }
