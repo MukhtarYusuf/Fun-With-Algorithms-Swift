@@ -23,5 +23,15 @@ class Queue<T> {
     private var first: QueueNode<T>?
     private var last: QueueNode<T>?
     
+    func enqueue(val: T) {
+        let newNode = QueueNode(val: val)
+        
+        last?.next = newNode
+        last = newNode
+        if first == nil {
+            first = newNode
+        }
+    }
+    
 
 }
