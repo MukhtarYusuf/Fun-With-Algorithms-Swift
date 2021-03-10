@@ -33,5 +33,16 @@ class Queue<T> {
         }
     }
     
+    func dequeue() -> T? {
+        let removedVal = first?.val
+        
+        first = first?.next
+        if first == nil {
+            last = nil
+        }
+        
+        return removedVal
+    }
+    
 
 }
