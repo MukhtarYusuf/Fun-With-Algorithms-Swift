@@ -44,5 +44,9 @@ class Queue<T> {
         return removedVal
     }
     
+    func peek() -> T? {
+        return first?.val
+    }
+    
 
 }
