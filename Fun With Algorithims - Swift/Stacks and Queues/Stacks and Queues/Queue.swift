@@ -48,5 +48,8 @@ class Queue<T> {
         return first?.val
     }
     
+    func isEmpty() -> Bool {
+        return first == nil
+    }
 
 }
