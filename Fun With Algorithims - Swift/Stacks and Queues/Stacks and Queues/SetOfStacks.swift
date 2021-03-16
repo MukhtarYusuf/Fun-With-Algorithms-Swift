@@ -13,5 +13,10 @@ import Foundation
 // Solution: Array of Stacks With Implicit Capacity
 
 class SetOfStacks<T> {
+    private var arrOfStacks: [Stack<T>]
+    private var curIndex: Int
+    private var curSize: Int
+    private let MAX_SIZE: Int
+    
 
 }
