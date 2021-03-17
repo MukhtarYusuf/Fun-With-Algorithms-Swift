@@ -18,5 +18,13 @@ class SetOfStacks<T> {
     private var curSize: Int
     private let MAX_SIZE: Int
     
+    init(size: Int) {
+        arrOfStacks = [Stack<T>]()
+        arrOfStacks.append(Stack<T>())
+        curIndex = 0
+        curSize = 0
+        MAX_SIZE = size
+    }
+    
 
 }
