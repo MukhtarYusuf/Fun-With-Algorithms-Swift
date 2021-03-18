@@ -26,5 +26,20 @@ class SetOfStacks<T> {
         MAX_SIZE = size
     }
     
+    func push(_ val: T) {
+        if curSize == MAX_SIZE {
+            let newStack = Stack<T>()
+            newStack.push(val)
+            
+            arrOfStacks.append(newStack)
+            curIndex += 1
+            curSize = 0
+        } else {
+            arrOfStacks[curIndex].push(val)
+        }
+        
+        curSize += 1
+    }
+    
 
 }
