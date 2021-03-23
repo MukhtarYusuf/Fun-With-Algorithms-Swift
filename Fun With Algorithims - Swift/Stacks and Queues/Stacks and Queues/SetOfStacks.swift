@@ -41,5 +41,19 @@ class SetOfStacks<T> {
         curSize += 1
     }
     
+    func pop() -> T? {
+        guard !isEmpty() else { return nil }
+        
+        var curStack = arrOfStacks[curIndex]
+        if curStack.isEmpty() {
+            arrOfStacks.remove(at: curIndex)
+            curIndex -= 1
+            curStack = arrOfStacks[curIndex]
+            curSize = MAX_SIZE
+        }
+        curSize -= 1
+        
+        return curStack.pop()
+    }
 
 }
