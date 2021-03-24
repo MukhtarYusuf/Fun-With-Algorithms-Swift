@@ -55,5 +55,20 @@ class SetOfStacks<T> {
         
         return curStack.pop()
     }
+    
+    func popAt(index: Int) -> T? {
+        guard !isEmpty() else { return nil }
+        
+        var poppedValue: T?
+        if index == curIndex {
+            poppedValue = pop()
+        } else {
+            poppedValue = arrOfStacks[index].pop()
+            shiftStacks(index)
+        }
+        
+        return poppedValue
+    }
+    
 
 }
