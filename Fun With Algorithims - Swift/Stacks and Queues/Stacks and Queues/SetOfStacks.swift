@@ -70,5 +70,9 @@ class SetOfStacks<T> {
         return poppedValue
     }
     
+    func isEmpty() -> Bool {
+        return curIndex == 0 && arrOfStacks[0].isEmpty()
+    }
+    
 
 }
