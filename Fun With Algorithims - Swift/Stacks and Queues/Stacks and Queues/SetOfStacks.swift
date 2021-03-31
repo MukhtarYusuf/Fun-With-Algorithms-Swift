@@ -74,5 +74,13 @@ class SetOfStacks<T> {
         return curIndex == 0 && arrOfStacks[0].isEmpty()
     }
     
+    private func shiftStacks(_ startIndex: Int) {
+        for i in startIndex ..< arrOfStacks.count - 1 {
+            shiftTwoStacks(i, i + 1)
+        }
+        
+        curSize -= 1
+    }
+    
 
 }
