@@ -82,5 +82,7 @@ class SetOfStacks<T> {
         curSize -= 1
     }
     
+    private func shiftTwoStacks(_ firstIndex: Int, _ secondIndex: Int) {
+    }
 
 }
