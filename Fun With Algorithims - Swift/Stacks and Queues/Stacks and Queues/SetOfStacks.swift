@@ -83,6 +83,10 @@ class SetOfStacks<T> {
     }
     
     private func shiftTwoStacks(_ firstIndex: Int, _ secondIndex: Int) {
+        let firstStack = arrOfStacks[firstIndex]
+        let secondStack = arrOfStacks[secondIndex]
+        let bufferStack = Stack<T>()
+        
     }
 
 }
