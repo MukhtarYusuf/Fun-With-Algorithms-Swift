@@ -87,6 +87,20 @@ class SetOfStacks<T> {
         let secondStack = arrOfStacks[secondIndex]
         let bufferStack = Stack<T>()
         
+        if secondStack.isEmpty() {
+            curSize = MAX_SIZE
+            arrOfStacks.remove(at: secondIndex)
+        } else {
+            while !secondStack.isEmpty() {
+                bufferStack.push(secondStack.pop()!)
+            }
+            
+            firstStack.push(bufferStack.pop()!)
+            
+            while !bufferStack.isEmpty() {
+                secondStack.push(bufferStack.pop()!)
+            }
+        }
     }
 
 }
