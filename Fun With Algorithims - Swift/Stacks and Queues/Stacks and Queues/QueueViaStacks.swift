@@ -12,4 +12,7 @@ import Foundation
 // Solution: 2 Stacks Approach
 
 class QueueViaStacks<T> {
+    private var insertStack: Stack<T>
+    private var removeStack: Stack<T>
+    
 }
