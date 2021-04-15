@@ -1,3 +1,4 @@
+//
 //  QueueViaStacks.swift
 //  Stacks and Queues
 //
@@ -14,5 +15,10 @@ import Foundation
 class QueueViaStacks<T> {
     private var insertStack: Stack<T>
     private var removeStack: Stack<T>
+    
+    init() {
+        insertStack = Stack<T>()
+        removeStack = Stack<T>()
+    }
     
 }
