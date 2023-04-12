@@ -21,4 +21,8 @@ class QueueViaStacks<T> {
         removeStack = Stack<T>()
     }
     
+    func enqueue(_ val: T) {
+        insertStack.push(val)
+    }
+    
 }
