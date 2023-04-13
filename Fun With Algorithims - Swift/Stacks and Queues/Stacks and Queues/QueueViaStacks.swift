@@ -25,4 +25,6 @@ class QueueViaStacks<T> {
         insertStack.push(val)
     }
     
+    func dequeue() -> T? {
+    }
 }
