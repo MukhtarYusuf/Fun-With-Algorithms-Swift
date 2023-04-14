@@ -26,5 +26,14 @@ class QueueViaStacks<T> {
     }
     
     func dequeue() -> T? {
+        guard !isEmpty() else { return nil }
+        
+        if removeStack.isEmpty() {
+            while !insertStack.isEmpty() {
+                removeStack.push(insertStack.pop()!)
+            }
+        }
+        
+        return removeStack.pop()
     }
 }
