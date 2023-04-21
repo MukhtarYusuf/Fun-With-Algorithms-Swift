@@ -36,4 +36,9 @@ class QueueViaStacks<T> {
         
         return removeStack.pop()
     }
+    
+    func isEmpty() -> Bool {
+        return insertStack.isEmpty() && removeStack.isEmpty()
+    }
+
 }
