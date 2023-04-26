@@ -10,6 +10,23 @@ import Foundation
 
 class StacksAndQueuesDemo {
     static func main() {
+        let demo = StacksAndQueuesDemo()
+        
+        let stack = Stack<Int>()
+        stack.push(8)
+        stack.push(6)
+        stack.push(10)
+        stack.push(2)
+        stack.push(15)
+        stack.push(7)
+        
+        print("Stack Before Sorting:")
+        stack.displayStack()
+        
+        demo.sortStack(stack)
+        print("Stack After Sorting:")
+        stack.displayStack()
+    }
     
     // Problem 5: Sort Stack
     
