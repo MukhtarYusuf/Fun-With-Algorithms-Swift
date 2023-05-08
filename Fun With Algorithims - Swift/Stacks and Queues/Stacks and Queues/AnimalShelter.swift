@@ -9,4 +9,7 @@
 import Foundation
 
 class AnimalShelter {
+    private let dogQueue = Queue<Dog>()
+    private let catQueue = Queue<Cat>()
+    private var timeStamp = 0
 }
