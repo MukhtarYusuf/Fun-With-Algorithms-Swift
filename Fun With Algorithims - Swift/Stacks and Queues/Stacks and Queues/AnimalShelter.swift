@@ -12,4 +12,16 @@ class AnimalShelter {
     private let dogQueue = Queue<Dog>()
     private let catQueue = Queue<Cat>()
     private var timeStamp = 0
+    
+    func enqueue(_ animal: Animal) {
+        animal.timeStamp = timeStamp
+        
+        if let dog = animal as? Dog {
+            dogQueue.enqueue(val: dog)
+        } else if let cat = animal as? Cat {
+            catQueue.enqueue(val: cat)
+        }
+        
+        timeStamp += 1
+    }
 }
