@@ -24,4 +24,13 @@ class AnimalShelter {
         
         timeStamp += 1
     }
+    
+    func dequeueAny() -> Animal? {
+        guard !isEmpty() else { return nil }
+        
+        let dogStamp = dogQueue.peek()?.timeStamp ?? Int.max
+        let catStamp = catQueue.peek()?.timeStamp ?? Int.max
+        
+        return dogStamp < catStamp ? dogQueue.dequeue() : catQueue.dequeue()
+    }
 }
