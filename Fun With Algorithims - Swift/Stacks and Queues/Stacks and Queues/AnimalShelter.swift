@@ -33,4 +33,9 @@ class AnimalShelter {
         
         return dogStamp < catStamp ? dogQueue.dequeue() : catQueue.dequeue()
     }
+    
+    func dequeueDog() -> Dog? {
+        return dogQueue.dequeue()
+    }
+    
 }
