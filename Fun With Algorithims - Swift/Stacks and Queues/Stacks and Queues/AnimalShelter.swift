@@ -38,4 +38,8 @@ class AnimalShelter {
         return dogQueue.dequeue()
     }
     
+    func dequeueCat() -> Cat? {
+        return catQueue.dequeue()
+    }
+    
 }
