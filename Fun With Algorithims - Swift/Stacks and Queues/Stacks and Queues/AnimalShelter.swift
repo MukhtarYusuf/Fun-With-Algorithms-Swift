@@ -42,4 +42,7 @@ class AnimalShelter {
         return catQueue.dequeue()
     }
     
+    func isEmpty() -> Bool {
+        return dogQueue.isEmpty() && catQueue.isEmpty()
+    }
 }
